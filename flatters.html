@@ -103,7 +103,11 @@ angular.module("app", []).controller("terrainCtrl", function($scope) {
     ];
 
     $scope.sommeCouts = function (cmds){
-      sommeCouts = Number(cmds[0].cout) + Number(cmds[1].cout) + Number(cmds[2].cout);    
+      sommeCouts = 0;
+      for (var iter = 0; iter < 20; iter++) {
+        sommeCouts = sommeCouts + Number(cmds[iter].cout);
+      }
+
       return sommeCouts;
     }
 
