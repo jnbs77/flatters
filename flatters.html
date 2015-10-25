@@ -26,19 +26,24 @@
       </tr>
       <tr class="terrains">
        <td  width=5% class="ter-{{terrain.type}}" style="border:1px solid black; font-size: 100%" ng-repeat="terrain in terrains2 | orderBy: no">
-        <select style="border=1;" ng-model="cmds[terrain.no-1 ].cmd">
-          <option default value="NONE">Aucune</option>
-          <option value="recruter">Recruter</option>
-          <option value="construire">Construire</option>
-          <option value="attaquer">Attaquer</option>
-        </select> 
+        
+
+
+    <select name="mySelect" id="mySelect" ng-model="cmds[terrain.no-1].cmd">
+      <option ng-repeat="commande in cmds[terrain.no-1].cmdsAvailable" value="{{commande.numCmde}}">{{commande.libCmde}}</option>
+    </select>{{cmds[terrain.no-1 ].cmdsCouts[cmds[terrain.no-1].cmd]}}
+
+  <!--       <select name="mySelect" id="mySelect"
+          ng-options="commande.libCmde for commande in cmds[terrain.no-1 ].cmdsAvailable track by commande.numCmde"
+          ng-model="cmds[terrain.no-1].cmd"></select> {{cmds[terrain.no-1 ].cmdsCouts[cmds[terrain.no-1].cmd.numCmde]}}
+
+   -->
+
+
       </td>
     </tr>
     <tr class="terrains">
-       <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no"><input size="3" type="text" ng-model="cmds[terrain.no-1 ].cout"></td>
-      </tr>
-    <tr class="terrains">
-      <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">cmd : {{cmds[terrain.no-1 ].cmd}}</td>
+      <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">cmd : {{cmds[terrain.no-1 ].cmdsAvailable[cmds[terrain.no-1].cmd].libCmde}}</td>
     </tr>
 
 
@@ -80,37 +85,40 @@ angular.module("app", []).controller("terrainCtrl", function($scope) {
     ];
 
     $scope.cmds = [
-    {no:1, cmd:'NONE', cout:0}, 
-    {no:2, cmd:'NONE', cout:0}, 
-    {no:3, cmd:'NONE', cout:0}, 
-    {no:4, cmd:'NONE', cout:0 }, 
-    {no:5, cmd:'NONE', cout:0 }, 
-    {no:6, cmd:'NONE', cout:0 }, 
-    {no:7, cmd:'NONE', cout:0 }, 
-    {no:8, cmd:'NONE', cout:0 }, 
-    {no:9, cmd:'NONE', cout:0 }, 
-    {no:10, cmd:'NONE', cout:0 },
-    {no:11, cmd:'NONE', cout:0 }, 
-    {no:12, cmd:'NONE', cout:0 }, 
-    {no:13, cmd:'NONE', cout:0 }, 
-    {no:14, cmd:'NONE', cout:0 }, 
-    {no:15, cmd:'NONE', cout:0 }, 
-    {no:16, cmd:'NONE', cout:0 }, 
-    {no:17, cmd:'NONE', cout:0 }, 
-    {no:18, cmd:'NONE', cout:0 }, 
-    {no:19, cmd:'NONE', cout:0 }, 
-    {no:20, cmd:'NONE', cout:0 } 
+    {no:1, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:2, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:3, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:4, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:5, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:6, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:7, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:8, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:9, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:10, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:11, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:12, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:13, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:14, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:15, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Exploser"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:16, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:17, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:18, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:19, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
+    {no:20, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0} 
     ];
 
     $scope.sommeCouts = function (cmds){
       sommeCouts = 0;
+      /*for (var iter = 0; iter < 20; iter++) {
+        sommeCouts = sommeCouts + Number(cmds[iter].cmdsCouts[cmds[iter].cmd.numCmde]);
+      }*/
+
       for (var iter = 0; iter < 20; iter++) {
-        sommeCouts = sommeCouts + Number(cmds[iter].cout);
+        sommeCouts = sommeCouts + Number(cmds[iter].cmdsCouts[cmds[iter].cmd]);
       }
 
       return sommeCouts;
     }
-
 
 });
 
