@@ -11,37 +11,39 @@
 </head>
 <body ng-app="app"> 
 
-  <div ng-controller="terrainCtrl" style="width: 60%; text-align: center; margin: 0 auto;">
+  <div ng-controller="terrainCtrl" style="width: 60%; text-align: center; margin: 0, auto;">
 
-  <select ng-model="ordre">
-  <option value="name">Tri par nom</option>
-  <option value="desc">Tri par description ascendante</option>
-  <option value="-desc">Tri par description descendante</option>
-  </select>	
-  Gold : {{gold}} | Gold-new : {{gold - sommeCouts(cmds)}}
+    <select ng-model="ordre">
+    <option value="name">Tri par nom</option>
+    <option value="desc">Tri par description ascendante</option>
+    <option value="-desc">Tri par description descendante</option>
+    </select>	
+    Gold : {{gold}} | Gold-new : {{gold - sommeCouts(cmds)}}
 
-  <table style="text-align:center" border="1" width="90%" cellspacing="0" aling="center">
-    <tr class="terrains">
-  	 <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">{{terrain.type}} <br/> {{terrain.civils}} - {{terrain.guerriers}}</td>
+    <table style="text-align:center" border="1" width="90%" cellspacing="0" aling="center">
+      <tr class="terrains">
+    	 <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">{{terrain.type}} <br/> {{terrain.civils}} - {{terrain.guerriers}}</td>
+      </tr>
+      <tr class="terrains">
+       <td  width=5% class="ter-{{terrain.type}}" style="border:1px solid black; font-size: 100%" ng-repeat="terrain in terrains2 | orderBy: no">
+        <select style="border=1;" ng-model="cmds[terrain.no-1 ].cmd">
+          <option default value="NONE">Aucune</option>
+          <option value="recruter">Recruter</option>
+          <option value="construire">Construire</option>
+          <option value="attaquer">Attaquer</option>
+        </select> 
+      </td>
     </tr>
     <tr class="terrains">
-     <td  width=5% class="ter-{{terrain.type}}" style="border:1px solid black; font-size: 100%" ng-repeat="terrain in terrains2 | orderBy: no">
-      <select style="border=1;" ng-model="cmds[terrain.no-1 ].cmd">
-        <option default value="NONE">Aucune</option>
-        <option value="recruter">Recruter</option>
-        <option value="construire">Construire</option>
-        <option value="attaquer">Attaquer</option>
-      </select> 
-    </td>
-  </tr>
-  <tr class="terrains">
-     <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no"><input type="text" ng-model="cmds[terrain.no-1 ].cout"></td>
+       <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no"><input size="3" type="text" ng-model="cmds[terrain.no-1 ].cout"></td>
+      </tr>
+    <tr class="terrains">
+      <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">cmd : {{cmds[terrain.no-1 ].cmd}}</td>
     </tr>
-  <tr class="terrains">
-    <td width=5% class="ter-{{terrain.type}}" style="border:1px solid black" ng-repeat="terrain in terrains2 | orderBy: no">cmd : {{cmds[terrain.no-1 ].cmd}}</td>
-  </tr>
-    
- </table>
+
+
+      
+   </table>
 
 
  </div>
