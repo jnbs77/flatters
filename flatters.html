@@ -31,14 +31,7 @@
 
     <select name="mySelect" id="mySelect" ng-model="cmds[terrain.no-1].cmd">
       <option ng-repeat="commande in cmds[terrain.no-1].cmdsAvailable" value="{{commande.numCmde}}">{{commande.libCmde}}</option>
-    </select>{{cmds[terrain.no-1 ].cmdsCouts[cmds[terrain.no-1].cmd]}}
-
-  <!--       <select name="mySelect" id="mySelect"
-          ng-options="commande.libCmde for commande in cmds[terrain.no-1 ].cmdsAvailable track by commande.numCmde"
-          ng-model="cmds[terrain.no-1].cmd"></select> {{cmds[terrain.no-1 ].cmdsCouts[cmds[terrain.no-1].cmd.numCmde]}}
-
-   -->
-
+    </select>{{cmds[terrain.no-1 ].cmdsAvailable[cmds[terrain.no-1].cmd].coutCmde}}
 
       </td>
     </tr>
@@ -85,36 +78,34 @@ angular.module("app", []).controller("terrainCtrl", function($scope) {
     ];
 
     $scope.cmds = [
-    {no:1, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:2, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:3, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:4, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:5, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:6, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:7, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:8, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:9, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:10, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:11, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:12, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:13, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:14, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:15, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Exploser"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:16, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:17, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:18, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:19, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0}, 
-    {no:20, cmdsAvailable:[{numCmde:0, libCmde:"Aucune"}, {numCmde:1, libCmde:"Recruter"}, {numCmde:2, libCmde:"Terraformer"}], cmdsCouts:[0, 100, 300], cmd:0} 
+    {no:1, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:2, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:3, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:4, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:5, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:6, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:7, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:8, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:9, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:10, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:11, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:12, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:13, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:14, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:15, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Exploser", coutCmde:4000}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:16, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:17, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:18, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:19, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0}, 
+    {no:20, cmdsAvailable:[{numCmde:0, libCmde:"Aucune", coutCmde:0}, {numCmde:1, libCmde:"Recruter", coutCmde:100}, {numCmde:2, libCmde:"Terraformer", coutCmde:300}], cmd:0} 
     ];
 
     $scope.sommeCouts = function (cmds){
       sommeCouts = 0;
-      /*for (var iter = 0; iter < 20; iter++) {
-        sommeCouts = sommeCouts + Number(cmds[iter].cmdsCouts[cmds[iter].cmd.numCmde]);
-      }*/
+
 
       for (var iter = 0; iter < 20; iter++) {
-        sommeCouts = sommeCouts + Number(cmds[iter].cmdsCouts[cmds[iter].cmd]);
+        sommeCouts = sommeCouts + Number(cmds[iter].cmdsAvailable[cmds[iter].cmd].coutCmde);
       }
 
       return sommeCouts;
