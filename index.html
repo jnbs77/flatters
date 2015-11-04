@@ -1,8 +1,7 @@
 <!-- index.html -->
-<!doctype html>
 
-<!-- ASSIGN OUR ANGULAR MODULE -->
-<html ng-app="testApp">
+
+<html>
 <head>
     <!-- META -->
     <meta charset="utf-8">
@@ -21,16 +20,41 @@
     <!-- SPELLS -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script><!-- load jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.0.8/angular.min.js"></script><!-- load angular -->
+    <!-- <script>
+        angular.module('testApp', [])
+            .controller("mainController", 
+                function ($scope, $http) {
+                        $scope.terrains = {};
+                        console.log("coucou");
+                        // when landing on the page, get all todos and show them
+                        $http.get('/api/new')
+                            .success(function(data) {
+                                console.log("coucou2");
+                                $scope.terrains = data;
+                                console.log(data);
+                            })
+                            .error(function(data) {
+                                console.log('Error: ' + data);
+                            });
+                }
+            
+            );
+    </script> -->
     <script src="core.js"></script>
 
+
+
 </head>
-<!-- SET THE CONTROLLER AND GET ALL TODOS -->
-<body ng-controller="mainController">
-    <div class="container">
+
+<!-- ASSIGN OUR ANGULAR MODULE -->
+<body ng-app="testApp" >
+    
+    <!-- SET THE CONTROLLER AND GET ALL TODOS -->
+    <div ng-controller="mainController" class="container">
 
         <!-- HEADER AND TODO COUNT -->
         <div class="jumbotron text-center">
-            <h1>Test <span class="label label-info">{{ terrains.length }}</span></h1>
+            <h1>Test <span class="label label-info">{{ terrains.listeTerrains.length }}</span></h1>
         </div>
 
         <!-- TODO LIST -->
@@ -38,7 +62,7 @@
             <div class="col-sm-4 col-sm-offset-4">
 
                 <!-- LOOP OVER THE TODOS IN $scope.todos -->
-                <div class="checkbox" ng-repeat="terrain in terrains">
+                <div class="checkbox" ng-repeat="terrain in terrains.listeTerrains">
                     <label>{{ terrain.type }}
                     </label>
                 </div>
