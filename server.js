@@ -29,32 +29,9 @@
     // initial loading - renvoit un flux json avec le tableau de terrain
     app.get('/api/new', function(req, res) {
 
-        /*var terrains = require('json/terrains-init.json');*/
-       var terrains = { listeTerrains : [
-            {no:1, type:'mer', civils:8, guerriers:2 }, 
-            {no:2, type:'plaine', civils:10, guerriers:5 }, 
-            {no:3, type:'plaine', civils:10, guerriers:5 }, 
-            {no:4, type:'mer', civils:8, guerriers:2 }, 
-            {no:5, type:'mer', civils:10, guerriers:5 }, 
-            {no:6, type:'plaine', civils:8, guerriers:2 }, 
-            {no:7, type:'plaine', civils:10, guerriers:5 }, 
-            {no:8, type:'plaine', civils:8, guerriers:2 }, 
-            {no:9, type:'foret', civils:8, guerriers:2 }, 
-            {no:10, type:'foret', civils:0, guerriers:0 },
-            {no:11, type:'plaine', civils:8, guerriers:2 }, 
-            {no:12, type:'marais', civils:10, guerriers:5 }, 
-            {no:13, type:'montagne', civils:10, guerriers:5 }, 
-            {no:14, type:'montagne', civils:8, guerriers:2 }, 
-            {no:15, type:'volcan', civils:10, guerriers:5 }, 
-            {no:16, type:'montagne', civils:8, guerriers:2 }, 
-            {no:17, type:'plaine', civils:10, guerriers:5 }, 
-            {no:18, type:'plaine', civils:8, guerriers:2 }, 
-            {no:19, type:'desert', civils:8, guerriers:2 }, 
-            {no:20, type:'plaine', civils:8, guerriers:2 } 
-            ]
-        }
-
-		res.json(terrains); // return all todos in JSON format
+        var fs = require('fs');
+        var terr = JSON.parse(fs.readFileSync('./json/terrains-init.json', 'utf8'));
+		res.json(terr); // return all todos in JSON format
        
     });
 
